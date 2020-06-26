@@ -2,7 +2,7 @@
     "name": "browserify-bundler",
     "version": "1.0.0",
     "description": "A browserify bundler for csafe",
-    "author": "Christian Nagel",
+    "author": "Nizam",
     "main": "main.js",
     "dependencies": {
         "@types/aes-js": "^3.1.0",
@@ -22,8 +22,8 @@
     },
     "scripts": {
         "build-js": "browserify main.js --s module >  dist/bundle.js",
-        "build-ts": "browserify main.ts -p [ tsify --noImplicitAny --downlevelIteration ] --s module > dist/csafeBundle.js",
-        "minify": "uglifyjs dist/bundle.js --output dist/minifiedBundle.js"
+        "build-ts": "browserify -t browserify-css main.ts -p [ tsify --noImplicitAny --downlevelIteration ] --s csafe > dist/csafeBundle.js",
+        "minify": "uglifyjs dist/csafeBundle.js --output dist/minifiedCsafeBundle.js"
     },
     "browserify": {
         "transform": [
